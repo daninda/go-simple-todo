@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: simple-todo-postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - simple-todo-pgdata:/var/lib/postgresql/data
+
+volumes:
+  simple-todo-pgdata:
+    
+    
